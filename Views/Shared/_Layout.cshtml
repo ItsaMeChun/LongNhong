@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="lONG nHONG, 10 năm kinh nghiệm nhà làm, Breakfast Ideas, Healthy recipes, Which is the tastiest food?, Reviews, Số điện thoại">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+    <title>Trang chủ</title>
+    <link rel="stylesheet" href="~/Content/Homepage.css" media="screen">
+    <link rel="stylesheet" href="~/Content/nicepage.css" media="screen">
+    <link rel="stylesheet" href="~/Content/Style.css" media="screen">
+    <link rel="stylesheet" href="~/Content/Site.css" media="screen">
+    <link rel="stylesheet" href="~/Content/Menu.css" media="screen">
+    <script class="u-script" type="text/javascript" src="~/Scripts/jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="~/Scripts/nicepage.js" defer=""></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <meta name="generator" content="Nicepage 4.7.1, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="~/fonts/fontawesome-free-5.15.4-web/css/all.css" />
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Trang chủ">
+    <meta property="og:type" content="website">
+
+</head>  
+<body data-home-page="Trang-chủ.html" data-home-page-title="Trang chủ" class="u-body u-xl-mode">
+    <nav class="navbar">
+        <div class="content">
+            <div class="logo">
+                <a href="/"><img src="" style="background-repeat:no-repeat;" /></a>
+            </div>
+            <ul class="menu-list">
+                <div class="icon cancel-btn">
+                    <i class="fas fa-times"></i>
+                </div>
+                <li>
+                    <a href="/">Trang chính</a>
+                </li>
+
+                <li>
+                    <a href="@Url.Action("index", "MonAn")">Menu</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Liên hệ</a>
+                </li>
+                @if (Session["tk"] != null)
+                {
+                    <!--Can chinh sua tao trang cho nguoi dung-->
+                    <li>
+                        <a href="@Url.Action("Index","Home")">Xin Chào: @Session["tendangnhap"] </a>
+                    </li>
+                    <!--Can tao chuc nang dang xuat-->
+                    <li>
+                        <a href="@Url.Action("Signout","Account")">Đăng Xuất</a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="@Url.Action("Login","Account")">Đăng nhập</a>
+                    </li>
+                }
+                <li>
+                    <a href="@Url.Action("GioHang","GioHang")">Giỏ hàng</a>
+                </li>
+            </ul>
+            <div class="icon menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <div class="banner"></div>
+
+    @RenderBody()
+
+    <!--FOOTER-->
+    <section id="contact" class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-item">
+                    <h2>ĐỊA CHỈ</h2>
+                    <p>450/21 Đoàn Văn Bơ<br>P14 Q4 - TPHCM (KHÔNG CHI NHÁNH)</p>
+                </div>
+                <div class="footer-item">
+                    <h2>GIỜ MỞ CỬA</h2>
+                    <p>Thứ 2 - Chủ nhật <br> 06:30 AM - 11:30 AM </p>
+                </div>
+                <div class="footer-item">
+                    <h2>LIÊN HỆ</h2>
+                    <p>
+                        <i class="fas fa-phone"></i> 0933847317 (Cẩm Loan)<br> <i class="far fa-envelope"></i>
+                        lethaichau1976@gmail.com
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/phanthicam.van.37">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+
+                </div>
+                <div id="map"></div>
+            </div>
+            <div class="footer-copyright">
+                Copyright © @DateTime.Now.Year . All rights reserved.
+            </div>
+        </div>
+    </section>
+    <script>
+        const body = document.querySelector("body");
+        const navbar = document.querySelector(".navbar");
+        const menuBtn = document.querySelector(".menu-btn");
+        const cancelBtn = document.querySelector(".cancel-btn");
+        menuBtn.onclick = () => {
+            navbar.classList.add("show");
+            menuBtn.classList.add("hide");
+            body.classList.add("disabled");
+        }
+        cancelBtn.onclick = () => {
+            body.classList.remove("disabled");
+            navbar.classList.remove("show");
+            menuBtn.classList.remove("hide");
+        }
+        window.onscroll = () => {
+            this.scrollY > 20 ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
+        }
+    </script>
+    <!--GOOGLE MAP API-->
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+    <script defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNI_ZWPqvdS6r6gPVO50I4TlYkfkZdXh8&callback=initMap">
+    </script>
+    <script>
+        function initMap() {
+            var options = {
+                zoom: 15,
+                center: { lat: 10.759801065506585, lng: 106.70857341085205 },
+            };
+            var map = new google.maps.Map(document.getElementById('map'), options);
+            var marker = new google.maps.Marker({
+                position: { lat: 10.759801065506585, lng: 106.70857341085205 },
+                map: map,
+            });
+        }
+    </script>
+
+</body>
+</html>

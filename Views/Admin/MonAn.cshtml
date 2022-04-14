@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BeTa.Models.BunBo>
+
+@{
+    ViewBag.Title = "MonAn";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h2 style="text-align:center">MENU</h2>
+
+<p style="text-align:center">
+    @Html.ActionLink("Thêm mới", "ThemMoi")
+</p>
+<table class="table" style="margin:auto;outline:auto">
+    <tr>
+        <th style="padding: 30px; outline:auto">
+            Tên món 
+        </th>
+        <th style="padding: 30px; outline: auto">
+            Giá tiền 
+        </th>
+        <th style="padding: 30px; outline: auto">
+            Tình trạng 
+        </th>
+        <th style="padding: 30px; outline: auto">
+            Hình ảnh
+        </th>
+        <th style="padding: 30px; outline: auto">
+            Mô tả
+        </th>
+        <th style="padding: 30px; outline: auto"></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="padding: 30px; outline: auto">
+            @Html.DisplayFor(modelItem => item.Tenmon)
+        </td>
+        <td style="padding: 30px; outline: auto">
+            @Html.DisplayFor(modelItem => item.GiaTien)
+        </td>
+        <td style="padding: 30px; outline: auto">
+            @Html.DisplayFor(modelItem => item.Tinhtrang)
+        </td>
+        <td style="padding: 30px; outline: auto">
+           <img src="~/images/@Html.DisplayFor(modelItem => item.Img)" style="width: 90px; height: 90px; "  />
+        </td>
+        <td style="padding: 30px; outline: auto">
+            @Html.DisplayFor(modelItem => item.Mota)
+        </td>
+        <td style="padding: 30px; outline: auto">
+            @Html.ActionLink("Sửa", "Edit1", new { id = item.Mamon }) |
+            @Html.ActionLink("Xóa", "Delete", new { id = item.Mamon })
+        </td>
+    </tr>
+}
+
+</table>

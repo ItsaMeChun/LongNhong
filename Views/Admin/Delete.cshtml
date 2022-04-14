@@ -1,0 +1,61 @@
+﻿@model BeTa.Models.BunBo
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3 style="text-align:center">Bạn có chắc muốn xóa cái này?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+       
+
+        <dd style="text-align:center">
+            Tên món: 
+            @Html.DisplayFor(model => model.Tenmon)
+        </dd>
+
+
+
+        <dd style="text-align:center">
+            Giá tiền:
+            @Html.DisplayFor(model => model.GiaTien)
+        </dd>
+
+ 
+
+        <dd style="text-align:center">
+            Tình trạng:
+            @Html.DisplayFor(model => model.Tinhtrang)
+        </dd>
+
+        <dt style="text-align:center">
+            Hình ảnh:
+        </dt>
+
+        <dd style="text-align:center">
+           
+            <img src="~/images/@Html.DisplayFor(model => model.Img)" style="width:200px;height:200px"></img> 
+        </dd>
+
+   
+
+        <dd style="text-align:center">
+            Mô tả:
+            @Html.DisplayFor(model => model.Mota)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color" style="text-align:center">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Quay lại menu", "MonAn")
+        </div>
+    }
+</div>

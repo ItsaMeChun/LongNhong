@@ -1,0 +1,62 @@
+﻿@model IEnumerable<BeTa.Models.BunBo>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+  
+    <div class="container" >
+        <div class="menu">
+            <h2 class="menu-group-heading" style="text-align:center">
+                Menu
+            </h2>          
+            <div class="menu-group">
+                @foreach (var mon in Model)
+                {
+                    <div class="menu-item">
+                        <img src="~/images/@mon.Img" alt="Bun bo" class="menu-item-image" />
+                        <div class="menu-item-text">
+                            <h3 class="menu-item-heading">
+                                <span class="menu-item-name">@mon.Tenmon</span>
+                                <span class="menu-item-price">@mon.GiaTien vnd</span>
+                            </h3>
+                            <p class="menu-item-description">
+                                @mon.Mota
+                            </p>
+                        </div>
+                    </div>
+                }
+                @foreach (var mon in Model)
+                {
+                    <div class="menu-item">
+                        <img src="~/images/@mon.Img" alt="Bun bo" class="menu-item-image" />
+                        <div class="menu-item-text">
+                            <h3 class="menu-item-heading">
+                                <span class="menu-item-name">@mon.Tenmon</span>
+                                <span class="menu-item-price">@mon.GiaTien vnd</span>
+                            </h3>
+                            <p class="menu-item-description">
+                                @mon.Mota
+                            </p>
+                        </div>
+                    </div>
+                }
+                @foreach (var mon in Model)
+                {
+                    <div class="menu-item">
+                        <img src="~/images/@mon.Img" alt="Bun bo" class="menu-item-image" />
+                        <div class="menu-item-text">
+                            <h3 class="menu-item-heading">
+                                <span class="menu-item-name">@mon.Tenmon</span>
+                                <span class="menu-item-price">@mon.GiaTien vnd</span>
+                            </h3>
+                            <p class="menu-item-description">
+                                @mon.Mota
+                            </p>
+                        </div>
+                    </div>
+                }
+
+            </div>
+           
+        </div>
+    </div>    
