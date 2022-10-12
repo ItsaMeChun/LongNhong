@@ -1,6 +1,7 @@
 *.js linguist-detectable=true
 *.html linguist-detectable=true
 *.css linguist-detectable=true
+*.cs linguist-detecable=true
 
 *.less linguist-detectable=false
 *.svg linguist-detectable=false
